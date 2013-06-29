@@ -1,0 +1,10 @@
+<h1><%= @user.email %></h1>
+<p>Posts:</p>
+<% @posts.each do |post| %>
+  <h3><%= link_to post.title, post %></h3>
+  <p><%= post.text %></p>
+  <p><%= post.comments.count %> comments</p>
+  <br />
+<% end %>
+<% paginate @posts %>
+<%= link_to_function 'Back', 'history.back()' %>

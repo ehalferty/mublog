@@ -1,0 +1,14 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Stuff</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.inspect %></td>
+      <td><%= link_to 'Show', user %></td>
+    </tr>
+  <% end %>
+</table>
+  

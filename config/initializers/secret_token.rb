@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Mublog::Application.config.secret_token = '0a5a1c23ad209f5d1c410b6bc4a7598024a301ff60f9e6a754c79a7ca26552c399e2488a410d50e7b80da6d9d8ba7d2016b16b90ca9033e629326333fe78e8de'
+Myapp::Application.config.secret_token = '555440e73e608609ec59ae42fddc051150cc2951bac49ea8fcd0bb15f5533629ac6aae566fca66ac7b6b225f990ab37d4cbe0b3eda8c73b45f4f7f69b5766af2'

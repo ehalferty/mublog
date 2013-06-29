@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mublog</title>
+  <title>Myapp</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <% if signed_in? %>
+    <p>Signed in as <%= current_user.email %></p>
+    <%= link_to "Sign Out", destroy_user_session_path, :method => "delete" %>
+  <% else %>
+    <%= form_for("user", :url => user_session_path) do |f| %>
+      <%= f.label :email %>
+      <%= f.text_field :email, :size => 15 %>
+      <%= f.label :password %>
+      <%= f.text_field :password, :size => 15 %>
+      <%= f.submit "Sign in" %>
+      <%= link_to "Sign up", new_user_registration_path %>
+    <% end %>
+  <% end %>
+  <p class="alert"><%= alert %></p>
+  <p class="notice"><%= notice %></p>
+  <%= yield %>
 
 </body>
 </html>

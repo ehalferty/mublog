@@ -1,4 +1,21 @@
-Mublog::Application.routes.draw do
+Myapp::Application.routes.draw do
+  resources :comments
+  resources :posts
+
+  devise_for :users
+  resources :users
+
+  get "static/welcome"
+  get "main/dashboard"
+
+  authenticated :user do
+    root :to => "main#dashboard"
+  end
+
+  root :to => "static#welcome"
+
+  match 'profile' => 'users#show'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
